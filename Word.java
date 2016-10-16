@@ -51,7 +51,9 @@ public class Word implements Comparable<Word>{
      */
     @Override
     public int compareTo(Word other){
-        return other.Count()-this.Count();
+        int value = other.Count()-this.Count();
+        if (value == 0) return 1;
+        return value;
     }
 
 }

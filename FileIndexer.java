@@ -27,6 +27,7 @@ public class FileIndexer {
                 reader = new BufferedReader(new InputStreamReader(new FileInputStream(args[i])));
                 String line;
                 while ((line = reader.readLine()) != null) {
+                    line = line.toLowerCase();
                     // split line of words into array of tokens
                     String[] tokens = line.split(REGEX);
                     for (String token : tokens) {
@@ -35,7 +36,6 @@ public class FileIndexer {
                         if (token.equals("")) {
                             continue;
                         }
-
                         Word curWord = wordMap.get(token);
                         if (curWord == null) {
                             curWord = new Word(token);
@@ -51,7 +51,7 @@ public class FileIndexer {
                 continue;
             }
         }
-
+        
         // Define a Sorted set to hold the words in descending order of occurrence
         SortedSet <Word> sortedWordSet = new TreeSet<Word>(wordMap.values());
         int i = 0;
