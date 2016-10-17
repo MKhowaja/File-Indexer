@@ -13,6 +13,7 @@ public class FileIndexer {
     private static int N = 10;
 
     public static void main(String [] args){
+
         if (args.length == 0) {
             System.out.println("Please include one or more input files.");
         }
@@ -26,8 +27,11 @@ public class FileIndexer {
             try {
                 reader = new BufferedReader(new InputStreamReader(new FileInputStream(args[i])));
                 String line;
+
+                // Iterate through the lines in the file
                 while ((line = reader.readLine()) != null) {
                     line = line.toLowerCase();
+
                     // split line of words into array of tokens
                     String[] tokens = line.split(REGEX);
                     for (String token : tokens) {
@@ -51,7 +55,7 @@ public class FileIndexer {
                 continue;
             }
         }
-        
+
         // Define a Sorted set to hold the words in descending order of occurrence
         SortedSet <Word> sortedWordSet = new TreeSet<Word>(wordMap.values());
         int i = 0;

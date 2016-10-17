@@ -28,12 +28,19 @@ public class Word implements Comparable<Word>{
         return word;
     }
 
+    /**
+    * Used by the Hashmap to hash based on the word alone
+    */
     @Override
     public int hashCode()
     {
         return Word().hashCode();
     }
 
+    /**
+    * Returns true if the word string is the same.
+    * @return True if the words are the same. False otherwise
+    */
     @Override
     public boolean equals(Object obj)
     {
